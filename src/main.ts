@@ -11,6 +11,9 @@ runner.on('fail', (test: Test) => {
 
 runner.on('end', () => {
     const report = document.querySelector('#mocha')?.innerHTML;
+    console.log('failures:', failures); // if failures is empty, all tests passed
+    console.log('HTML report:', report);
+
     //TODO send post / websocket message with failures results
-    //this could be a cross-frame
+    //TODO this could be a POST message to vscode, or maybe to another server exposed by the external test suite
 })
